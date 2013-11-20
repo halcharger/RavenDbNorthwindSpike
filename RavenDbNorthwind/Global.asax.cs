@@ -17,6 +17,7 @@ namespace RavenDbNorthwind
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            AutoMapperConfig.Configure();
 
             Store = new DocumentStore{ConnectionStringName = "RavenDb"};
             Store.Initialize();
