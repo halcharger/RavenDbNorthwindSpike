@@ -1,9 +1,7 @@
-﻿using System.Reflection;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Raven.Client.Document;
-using Raven.Client.Indexes;
 
 namespace RavenDbNorthwind
 {
@@ -17,11 +15,9 @@ namespace RavenDbNorthwind
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            AutoMapperConfig.Configure();
 
-            Store = new DocumentStore{ConnectionStringName = "RavenDb"};
-            Store.Initialize();
-            IndexCreation.CreateIndexes(Assembly.GetCallingAssembly(), Store);
+            AutofacConfig.Configure();
+            AutoMapperConfig.Configure();
         }
     }
 }

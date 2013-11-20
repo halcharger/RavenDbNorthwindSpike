@@ -1,11 +1,19 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using Raven.Client;
 using RavenDbNorthwind.Models.Db;
 
 namespace RavenDbNorthwind.Controllers
 {
-    public class CategoriesController : RavenDbController
+    public class CategoriesController : Controller
     {
+        private readonly IDocumentSession RavenSession;
+
+        public CategoriesController(IDocumentSession ravenSession)
+        {
+            RavenSession = ravenSession;
+        }
+
         //
         // GET: /Categories/
         public ActionResult Index()
