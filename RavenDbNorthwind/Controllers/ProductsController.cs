@@ -21,8 +21,11 @@ namespace RavenDbNorthwind.Controllers
         public ActionResult Index()
         {
             var dbProducts = RavenSession.Query<Product>()
-                                       .Customize(q => q.Include<Category>(c => c.Name))
-                                       .Customize(q => q.Include<Supplier>(s => s.Name))
+                                       .Customize(q =>
+                                       {
+                                           q.Include<Product, Category>(p => p.Category);
+                                           q.Include<Product, Supplier>(p => p.Supplier);
+                                       })
                                        .ToList();
 
             var viewProducts = dbProducts.Select(Mapper.Map<ProductViewModel>);

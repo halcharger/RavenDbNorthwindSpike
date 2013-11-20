@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
@@ -32,14 +31,10 @@ namespace RavenDbNorthwind
                    //.OnRelease(x => { using (x) { x.SaveChanges(); } });
 
             builder.RegisterType<SupplierNameResolver>().InstancePerHttpRequest();
+            builder.RegisterType<CategoryNameResolver>().InstancePerHttpRequest();
             
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
-
-        public static Func<T> PerHttpSafeResolve<T>()
-        {
-            return () => DependencyResolver.Current.GetService<T>();
-        } 
     }
 }
