@@ -16,9 +16,10 @@ namespace RavenDbNorthwind.Controllers
 
         //
         // GET: /Categories/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string id)
         {
-            return View();
+            var category = RavenSession.Load<Category>(id);
+            return View(category);
         }
 
         //
