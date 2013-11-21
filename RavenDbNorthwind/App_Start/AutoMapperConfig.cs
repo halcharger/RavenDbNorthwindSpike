@@ -2,6 +2,7 @@
 using AutoMapper;
 using Raven.Client;
 using RavenDbNorthwind.Db;
+using RavenDbNorthwind.Features.Categories;
 using RavenDbNorthwind.Features.Products;
 
 namespace RavenDbNorthwind
@@ -15,6 +16,8 @@ namespace RavenDbNorthwind
             Mapper.CreateMap<Product, ProductModel>()
                   .ForMember(d => d.CategoryName, opt => opt.ResolveUsing<CategoryNameResolver>())
                   .ForMember(d => d.SupplierName, opt => opt.ResolveUsing<SupplierNameResolver>());
+
+            Mapper.CreateMap<CreateCategoryModel, Category>();
         }
     }
 

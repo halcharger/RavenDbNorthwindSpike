@@ -38,11 +38,11 @@ namespace RavenDbNorthwind.Features.Categories
         //
         // POST: /Categories/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(CreateCategoryModel model)
         {
             try
             {
-                // TODO: Add insert logic here
+                mediator.Send(new CreateCategoryCommand {Model = model});
 
                 return RedirectToAction("Index");
             }

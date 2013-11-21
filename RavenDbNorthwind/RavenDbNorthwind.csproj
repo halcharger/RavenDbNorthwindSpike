@@ -207,6 +207,9 @@
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Features\Account\AccountController.cs" />
     <Compile Include="Features\Categories\CategoriesController.cs" />
+    <Compile Include="Features\Categories\CreateCategoryCommand.cs" />
+    <Compile Include="Features\Categories\CreateCategoryCommandHandler.cs" />
+    <Compile Include="Features\Categories\CreateCategoryModel.cs" />
     <Compile Include="Features\Products\ProductsController.cs" />
     <Compile Include="DependencyResolution\StructureMap.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyResolver.cs" />
@@ -276,9 +279,11 @@
     <Content Include="Features\Categories\Details.cshtml" />
     <Content Include="Features\Products\Index.cshtml" />
     <Content Include="Features\Products\Details.cshtml" />
+    <Content Include="Features\Categories\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Categories\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
