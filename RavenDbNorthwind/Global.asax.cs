@@ -16,7 +16,7 @@ namespace RavenDbNorthwind
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            AutofacConfig.Configure();
+            DependencyResolution.StructureMap.Configure();
             AutoMapperConfig.Configure();
         }
     }

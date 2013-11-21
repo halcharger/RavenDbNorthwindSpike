@@ -7198,7 +7198,7 @@ function augmentWidthOrHeight( elem, name, extra, isBorderBox, styles ) {
 	var i = extra === ( isBorderBox ? "border" : "content" ) ?
 		// If we already have the right measurement, avoid augmentation
 		4 :
-		// Otherwise initialize for horizontal or vertical properties
+		// Otherwise Configure for horizontal or vertical properties
 		name === "width" ? 1 : 0,
 
 		val = 0;
