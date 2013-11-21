@@ -1,43 +1,42 @@
 ﻿using System.Web.Mvc;
-using RavenDbNorthwind.Features.Products;
 using ShortBus;
 
-namespace RavenDbNorthwind.Controllers
+namespace RavenDbNorthwind.Features.Categories
 {
-    public class ProductsController : Controller
+    public class CategoriesController : Controller
     {
         private readonly IMediator mediator;
 
-        public ProductsController(IMediator mediator)
+        public CategoriesController(IMediator mediator)
         {
             this.mediator = mediator;
         }
 
         //
-        // GET: /Products/
+        // GET: /Categories/
         public ActionResult Index()
         {
-            var response = mediator.Request(new ListProductsQuery());
+            var response = mediator.Request(new ListCategoriesQuery());
             return View(response.Data);
         }
 
         //
-        // GET: /Products/Details/5
+        // GET: /Categories/Details/5
         public ActionResult Details(string id)
         {
-            var response = mediator.Request(new ShowProductQuery {Id = id});
+            var response = mediator.Request(new ShowCategoryQuery {Id = id});
             return View(response.Data);
         }
 
         //
-        // GET: /Products/Create
+        // GET: /Categories/Create
         public ActionResult Create()
         {
             return View();
         }
 
         //
-        // POST: /Products/Create
+        // POST: /Categories/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
@@ -54,14 +53,14 @@ namespace RavenDbNorthwind.Controllers
         }
 
         //
-        // GET: /Products/Edit/5
+        // GET: /Categories/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
         //
-        // POST: /Products/Edit/5
+        // POST: /Categories/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
@@ -78,14 +77,14 @@ namespace RavenDbNorthwind.Controllers
         }
 
         //
-        // GET: /Products/Delete/5
+        // GET: /Categories/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
         //
-        // POST: /Products/Delete/5
+        // POST: /Categories/Delete/5
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
