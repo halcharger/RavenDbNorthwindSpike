@@ -79,26 +79,22 @@ namespace RavenDbNorthwind.Features.Categories
 
         //
         // GET: /Categories/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        //
-        // POST: /Categories/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(string id)
         {
             try
             {
-                // TODO: Add delete logic here
+                var response = mediator.Request(new CanDeleteCategoryQuery {Id = id});
 
-                return RedirectToAction("Index");
+                if (response.Data.CanDelete)
+                    mediator.Send(new DeleteCategoryCommand {Id = id});
+                else
+                    return View("DeleteError", (object)response.Data.ReasonCannotDelete);
             }
             catch
             {
-                return View();
+                
             }
+            return RedirectToAction("Index");
         }
     }
 }

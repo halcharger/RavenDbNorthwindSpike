@@ -206,15 +206,21 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Features\Account\AccountController.cs" />
+    <Compile Include="Features\Categories\CanDeleteCategoryModel.cs" />
+    <Compile Include="Features\Categories\CanDeleteCategoryQuery.cs" />
+    <Compile Include="Features\Categories\CanDeleteCategoryQueryHandler.cs" />
     <Compile Include="Features\Categories\CategoriesController.cs" />
     <Compile Include="Features\Categories\CreateCategoryCommand.cs" />
     <Compile Include="Features\Categories\CreateCategoryCommandHandler.cs" />
     <Compile Include="Features\Categories\CreateCategoryModel.cs" />
+    <Compile Include="Features\Categories\DeleteCategoryCommand.cs" />
+    <Compile Include="Features\Categories\DeleteCategoryCommandHandler.cs" />
     <Compile Include="Features\Categories\EditCategoryCommand.cs" />
     <Compile Include="Features\Categories\EditCategoryCommandHandler.cs" />
     <Compile Include="Features\Categories\EditCategoryModel.cs" />
     <Compile Include="Features\Categories\EditCategoryQuery.cs" />
     <Compile Include="Features\Categories\EditCategoryQueryHandler.cs" />
+    <Compile Include="Features\Orders\OrdersController.cs" />
     <Compile Include="Features\Products\ProductsController.cs" />
     <Compile Include="DependencyResolution\StructureMap.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyResolver.cs" />
@@ -289,9 +295,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Features\Categories\Edit.cshtml" />
+    <Content Include="Features\Categories\DeleteError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Categories\" />
+    <Folder Include="Views\Orders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
