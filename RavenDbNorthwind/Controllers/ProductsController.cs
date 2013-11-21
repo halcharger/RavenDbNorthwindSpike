@@ -1,6 +1,4 @@
 ﻿using System.Web.Mvc;
-using Raven.Client;
-using RavenDbNorthwind.Models.Db;
 using RavenDbNorthwind.Queries;
 using ShortBus;
 
@@ -8,12 +6,10 @@ namespace RavenDbNorthwind.Controllers
 {
     public class ProductsController : Controller
     {
-        private readonly IDocumentSession RavenSession;
         private readonly IMediator mediator;
 
-        public ProductsController(IDocumentSession ravenSession, IMediator mediator)
+        public ProductsController(IMediator mediator)
         {
-            RavenSession = ravenSession;
             this.mediator = mediator;
         }
 
@@ -29,8 +25,8 @@ namespace RavenDbNorthwind.Controllers
         // GET: /Products/Details/5
         public ActionResult Details(string id)
         {
-            var product = RavenSession.Load<Product>(id);
-            return View(product);
+            var response = mediator.Request(new ShowProductQuery {Id = id});
+            return View(response.Data);
         }
 
         //
