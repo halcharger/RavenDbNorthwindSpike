@@ -22,6 +22,7 @@ using AutoMapper;
 using Raven.Client;
 using Raven.Client.Document;
 using Raven.Client.Indexes;
+using ShortBus;
 using StructureMap;
 using StructureMap.Pipeline;
 
@@ -37,11 +38,14 @@ namespace RavenDbNorthwind.DependencyResolution {
 
                 x.Scan(y =>
                 {
+                    y.AssemblyContainingType<IMediator>();
                     y.TheCallingAssembly();
                     y.WithDefaultConventions();
                     y.LookForRegistries();
                     y.AddAllTypesOf<Controller>();
-                    y.ConnectImplementationsToTypesClosing(typeof (ValueResolver<,>));
+                    y.AddAllTypesOf(typeof(ValueResolver<,>));
+                    y.AddAllTypesOf(typeof (IQueryHandler<,>));
+                    y.AddAllTypesOf(typeof (ICommandHandler<>));
                 });
             });
 

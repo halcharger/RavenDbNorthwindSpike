@@ -1,36 +1,28 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using AutoMapper;
+﻿using System.Web.Mvc;
 using Raven.Client;
 using RavenDbNorthwind.Models.Db;
-using RavenDbNorthwind.Models.View;
+using RavenDbNorthwind.Queries;
+using ShortBus;
 
 namespace RavenDbNorthwind.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly IDocumentSession RavenSession;
+        private readonly IMediator mediator;
 
-        public ProductsController(IDocumentSession ravenSession)
+        public ProductsController(IDocumentSession ravenSession, IMediator mediator)
         {
             RavenSession = ravenSession;
+            this.mediator = mediator;
         }
 
         //
         // GET: /Products/
         public ActionResult Index()
         {
-            var dbProducts = RavenSession.Query<Product>()
-                                       .Customize(q =>
-                                       {
-                                           q.Include<Product, Category>(p => p.Category);
-                                           q.Include<Product, Supplier>(p => p.Supplier);
-                                       })
-                                       .ToList();
-
-            var viewProducts = dbProducts.Select(Mapper.Map<ProductViewModel>);
-
-            return View(viewProducts);
+            var response = mediator.Request(new ListProductsQuery());
+            return View(response.Data);
         }
 
         //
