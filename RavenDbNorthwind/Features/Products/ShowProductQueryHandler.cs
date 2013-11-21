@@ -5,7 +5,7 @@ using ShortBus;
 
 namespace RavenDbNorthwind.Features.Products
 {
-    public class ShowProductQueryHandler : IQueryHandler<ShowProductQuery, ProductModel>
+    public class ShowProductQueryHandler : IQueryHandler<ShowProductQuery, ShowProductModel>
     {
         private readonly IDocumentSession session;
 
@@ -14,11 +14,11 @@ namespace RavenDbNorthwind.Features.Products
             this.session = session;
         }
 
-        public ProductModel Handle(ShowProductQuery request)
+        public ShowProductModel Handle(ShowProductQuery request)
         {
             var product = session.Load<Product>(request.Id);
 
-            return Mapper.Map<ProductModel>(product);
+            return Mapper.Map<ShowProductModel>(product);
         }
     }
 }

@@ -3,7 +3,7 @@ using ShortBus;
 
 namespace RavenDbNorthwind.Features.Products
 {
-    public class ListProductsQuery : IQuery<IEnumerable<ProductModel>>
+    public class ListProductsQuery : IQuery<IEnumerable<ShowProductModel>>
     {
          
     }

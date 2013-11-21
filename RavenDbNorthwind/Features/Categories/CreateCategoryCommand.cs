@@ -2,7 +2,7 @@
 
 namespace RavenDbNorthwind.Features.Categories
 {
-    public class CreateCategoryCommand : ICommand
+    public class CreateCategoryCommand
     {
         public CreateCategoryModel Model { get; set; }
     }

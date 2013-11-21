@@ -13,11 +13,13 @@ namespace RavenDbNorthwind
         {
             Mapper.Configuration.ConstructServicesUsing(DependencyResolver.Current.GetService);
 
-            Mapper.CreateMap<Product, ProductModel>()
+            Mapper.CreateMap<Product, ShowProductModel>()
                   .ForMember(d => d.CategoryName, opt => opt.ResolveUsing<CategoryNameResolver>())
                   .ForMember(d => d.SupplierName, opt => opt.ResolveUsing<SupplierNameResolver>());
 
+            Mapper.CreateMap<Category, EditCategoryModel>();
             Mapper.CreateMap<CreateCategoryModel, Category>();
+            Mapper.CreateMap<EditCategoryModel, Category>();
         }
     }
 

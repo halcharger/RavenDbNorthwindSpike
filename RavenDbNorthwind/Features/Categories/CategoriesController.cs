@@ -54,19 +54,20 @@ namespace RavenDbNorthwind.Features.Categories
 
         //
         // GET: /Categories/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            var response = mediator.Request(new EditCategoryQuery {Id = id});
+            return View(response.Data);
         }
 
         //
         // POST: /Categories/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(EditCategoryModel model)
         {
             try
             {
-                // TODO: Add update logic here
+                mediator.Send(new EditCategoryCommand {Model = model});
 
                 return RedirectToAction("Index");
             }

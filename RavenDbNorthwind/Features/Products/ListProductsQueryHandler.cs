@@ -8,7 +8,7 @@ using ShortBus;
 
 namespace RavenDbNorthwind.Handlers
 {
-    public class ListProductsQueryHandler : IQueryHandler<ListProductsQuery, IEnumerable<ProductModel>>
+    public class ListProductsQueryHandler : IQueryHandler<ListProductsQuery, IEnumerable<ShowProductModel>>
     {
         private readonly IDocumentSession session;
 
@@ -17,7 +17,7 @@ namespace RavenDbNorthwind.Handlers
             this.session = session;
         }
 
-        public IEnumerable<ProductModel> Handle(ListProductsQuery request)
+        public IEnumerable<ShowProductModel> Handle(ListProductsQuery request)
         {
             var dbProducts = session.Query<Product>()
                                        .Customize(q =>
@@ -27,7 +27,7 @@ namespace RavenDbNorthwind.Handlers
                                        })
                                        .ToList();
 
-            return dbProducts.Select(Mapper.Map<ProductModel>);
+            return dbProducts.Select(Mapper.Map<ShowProductModel>);
         }
     }
 }
