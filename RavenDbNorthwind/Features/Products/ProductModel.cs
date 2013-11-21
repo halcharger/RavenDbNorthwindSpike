@@ -1,6 +1,6 @@
-﻿namespace RavenDbNorthwind.Models.View
+﻿namespace RavenDbNorthwind.Features.Products
 {
-    public class ProductViewModel
+    public class ProductModel
     {
         public string Id { get; set; }
         public string Name { get; set; }

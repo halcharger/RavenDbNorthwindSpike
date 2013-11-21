@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using RavenDbNorthwind.Queries;
+using RavenDbNorthwind.Features.Categories;
 using ShortBus;
 
 namespace RavenDbNorthwind.Controllers

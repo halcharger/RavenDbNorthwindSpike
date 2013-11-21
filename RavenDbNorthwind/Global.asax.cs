@@ -2,6 +2,7 @@
 using System.Web.Optimization;
 using System.Web.Routing;
 using Raven.Client.Document;
+using RavenDbNorthwind.App_Start;
 
 namespace RavenDbNorthwind
 {
@@ -15,6 +16,9 @@ namespace RavenDbNorthwind
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new FeatureViewLocationRazorViewEngine());
 
             DependencyResolution.StructureMap.Configure();
             AutoMapperConfig.Configure();

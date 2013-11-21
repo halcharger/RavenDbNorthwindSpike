@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
 using AutoMapper;
 using Raven.Client;
-using RavenDbNorthwind.Models.Db;
-using RavenDbNorthwind.Models.View;
+using RavenDbNorthwind.Db;
+using RavenDbNorthwind.Features.Products;
 
 namespace RavenDbNorthwind
 {
@@ -12,7 +12,7 @@ namespace RavenDbNorthwind
         {
             Mapper.Configuration.ConstructServicesUsing(DependencyResolver.Current.GetService);
 
-            Mapper.CreateMap<Product, ProductViewModel>()
+            Mapper.CreateMap<Product, ProductModel>()
                   .ForMember(d => d.CategoryName, opt => opt.ResolveUsing<CategoryNameResolver>())
                   .ForMember(d => d.SupplierName, opt => opt.ResolveUsing<SupplierNameResolver>());
         }

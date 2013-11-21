@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using NUnit.Framework;
 using Raven.Client.Document;
-using RavenDbNorthwind.Models.Db;
+using RavenDbNorthwind.Db;
 
 namespace RavenDbNorthwind.Tests
 {
@@ -18,6 +18,10 @@ namespace RavenDbNorthwind.Tests
                 foreach (var supplier in session.Query<Supplier>().ToList())
                 {
                     session.Advanced.GetMetadataFor(supplier);
+                }
+                foreach (var category in session.Query<Category>().ToList())
+                {
+                    session.Advanced.GetMetadataFor(category);
                 }
                 session.SaveChanges();
             }

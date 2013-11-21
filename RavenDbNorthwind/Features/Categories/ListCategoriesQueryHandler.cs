@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Raven.Client;
-using RavenDbNorthwind.Models.Db;
-using RavenDbNorthwind.Queries;
+using RavenDbNorthwind.Db;
 using ShortBus;
 
-namespace RavenDbNorthwind.Handlers
+namespace RavenDbNorthwind.Features.Categories
 {
     public class ListCategoriesQueryHandler : IQueryHandler<ListCategoriesQuery, IEnumerable<Category>>
     {

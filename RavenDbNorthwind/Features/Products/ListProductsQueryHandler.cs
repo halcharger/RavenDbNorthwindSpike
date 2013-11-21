@@ -2,14 +2,13 @@
 using System.Linq;
 using AutoMapper;
 using Raven.Client;
-using RavenDbNorthwind.Models.Db;
-using RavenDbNorthwind.Models.View;
-using RavenDbNorthwind.Queries;
+using RavenDbNorthwind.Db;
+using RavenDbNorthwind.Features.Products;
 using ShortBus;
 
 namespace RavenDbNorthwind.Handlers
 {
-    public class ListProductsQueryHandler : IQueryHandler<ListProductsQuery, IEnumerable<ProductViewModel>>
+    public class ListProductsQueryHandler : IQueryHandler<ListProductsQuery, IEnumerable<ProductModel>>
     {
         private readonly IDocumentSession session;
 
@@ -18,7 +17,7 @@ namespace RavenDbNorthwind.Handlers
             this.session = session;
         }
 
-        public IEnumerable<ProductViewModel> Handle(ListProductsQuery request)
+        public IEnumerable<ProductModel> Handle(ListProductsQuery request)
         {
             var dbProducts = session.Query<Product>()
                                        .Customize(q =>
@@ -28,7 +27,7 @@ namespace RavenDbNorthwind.Handlers
                                        })
                                        .ToList();
 
-            return dbProducts.Select(Mapper.Map<ProductViewModel>);
+            return dbProducts.Select(Mapper.Map<ProductModel>);
         }
     }
 }

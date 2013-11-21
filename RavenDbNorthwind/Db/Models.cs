@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RavenDbNorthwind.Models.Db
+namespace RavenDbNorthwind.Db
 {
     public class Company
     {

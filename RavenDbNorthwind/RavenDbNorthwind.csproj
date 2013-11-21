@@ -200,6 +200,7 @@
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FeatureViewLocationRazorViewEngine.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -214,19 +215,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Handlers\ListCategoriesQueryHandler.cs" />
-    <Compile Include="Handlers\ListProductsQueryHandler.cs" />
-    <Compile Include="Handlers\ShowCategoryQueryHandler.cs" />
-    <Compile Include="Handlers\ShowProductQueryHandler.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Db\Models.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\View\ProductViewModel.cs" />
+    <Compile Include="Features\Categories\ListCategoriesQueryHandler.cs" />
+    <Compile Include="Features\Products\ListProductsQueryHandler.cs" />
+    <Compile Include="Features\Categories\ShowCategoryQueryHandler.cs" />
+    <Compile Include="Features\Products\ShowProductQueryHandler.cs" />
+    <Compile Include="Features\Account\AccountViewModels.cs" />
+    <Compile Include="Db\Models.cs" />
+    <Compile Include="Features\Account\IdentityModels.cs" />
+    <Compile Include="Features\Products\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queries\ListCategoriesQuery.cs" />
-    <Compile Include="Queries\ListProductsQuery.cs" />
-    <Compile Include="Queries\ShowCategoryQuery.cs" />
-    <Compile Include="Queries\ShowProductQuery.cs" />
+    <Compile Include="Features\Categories\ListCategoriesQuery.cs" />
+    <Compile Include="Features\Products\ListProductsQuery.cs" />
+    <Compile Include="Features\Categories\ShowCategoryQuery.cs" />
+    <Compile Include="Features\Products\ShowProductQuery.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -257,28 +258,25 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Features\Web.config" />
+    <Content Include="Features\_ViewStart.cshtml" />
+    <Content Include="Features\Shared\Error.cshtml" />
+    <Content Include="Features\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\_RemoveAccountPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Categories\Index.cshtml" />
-    <Content Include="Views\Categories\Details.cshtml" />
-    <Content Include="Views\Products\Index.cshtml" />
-    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Features\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Features\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Features\Account\_RemoveAccountPartial.cshtml" />
+    <Content Include="Features\Account\_SetPasswordPartial.cshtml" />
+    <Content Include="Features\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Features\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Features\Account\Login.cshtml" />
+    <Content Include="Features\Account\Manage.cshtml" />
+    <Content Include="Features\Account\Register.cshtml" />
+    <Content Include="Features\Shared\_LoginPartial.cshtml" />
+    <Content Include="Features\Categories\Index.cshtml" />
+    <Content Include="Features\Categories\Details.cshtml" />
+    <Content Include="Features\Products\Index.cshtml" />
+    <Content Include="Features\Products\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

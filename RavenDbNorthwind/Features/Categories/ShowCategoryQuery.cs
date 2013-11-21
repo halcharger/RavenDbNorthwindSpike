@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using RavenDbNorthwind.Models.Db;
+﻿using RavenDbNorthwind.Db;
 using ShortBus;
 
-namespace RavenDbNorthwind.Queries
+namespace RavenDbNorthwind.Features.Categories
 {
     public class ShowCategoryQuery : IQuery<Category>
     {
