@@ -214,14 +214,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\ListCategoriesQueryHandler.cs" />
     <Compile Include="Handlers\ListProductsQueryHandler.cs" />
+    <Compile Include="Handlers\ShowCategoryQueryHandler.cs" />
     <Compile Include="Handlers\ShowProductQueryHandler.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Db\Models.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\View\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\ListCategoriesQuery.cs" />
     <Compile Include="Queries\ListProductsQuery.cs" />
+    <Compile Include="Queries\ShowCategoryQuery.cs" />
     <Compile Include="Queries\ShowProductQuery.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

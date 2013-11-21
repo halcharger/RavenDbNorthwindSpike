@@ -1,33 +1,32 @@
-﻿using System.Linq;
-using System.Web.Mvc;
-using Raven.Client;
-using RavenDbNorthwind.Models.Db;
+﻿using System.Web.Mvc;
+using RavenDbNorthwind.Queries;
+using ShortBus;
 
 namespace RavenDbNorthwind.Controllers
 {
     public class CategoriesController : Controller
     {
-        private readonly IDocumentSession RavenSession;
+        private readonly IMediator mediator;
 
-        public CategoriesController(IDocumentSession ravenSession)
+        public CategoriesController(IMediator mediator)
         {
-            RavenSession = ravenSession;
+            this.mediator = mediator;
         }
 
         //
         // GET: /Categories/
         public ActionResult Index()
         {
-            var categories = RavenSession.Query<Category>().ToList();
-            return View(categories);
+            var response = mediator.Request(new ListCategoriesQuery());
+            return View(response.Data);
         }
 
         //
         // GET: /Categories/Details/5
         public ActionResult Details(string id)
         {
-            var category = RavenSession.Load<Category>(id);
-            return View(category);
+            var response = mediator.Request(new ShowCategoryQuery {Id = id});
+            return View(response.Data);
         }
 
         //
