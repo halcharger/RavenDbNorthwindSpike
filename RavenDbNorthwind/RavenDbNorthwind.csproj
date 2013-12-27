@@ -292,15 +292,11 @@
     <Content Include="Features\Products\Index.cshtml" />
     <Content Include="Features\Products\Details.cshtml" />
     <Content Include="Features\Categories\Create.cshtml" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Features\Categories\Edit.cshtml" />
     <Content Include="Features\Categories\DeleteError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Categories\" />
-    <Folder Include="Views\Orders\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
